@@ -20,9 +20,18 @@ pre.centered {
 
 ul {
     list-style-type: none;
-    padding-left: 1ch;
+    margin-left: 0;
+    padding-left: 3ch;
+    text-indent: -2ch;
 }
 
 ul li::before {
     content: "* ";
+    display: block;
+    float: left;
+    width: 2ch;
+}
+
+a {
+    color: #01dfff;
 }
