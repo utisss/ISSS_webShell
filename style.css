@@ -5,11 +5,24 @@ html {
 body {
 	background-color: black;
 	color: white;
-	font-size: 1.25em;
+	font-size: 1.3em;
 	font-family: monospace;
+}
+
+div.contentWrapper {
     max-width: 80ch;
+    margin: 0 auto;
 }
 
 pre.centered {
     text-align: center;
-}   
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1ch;
+}
+
+ul li::before {
+    content: "* ";
+}
