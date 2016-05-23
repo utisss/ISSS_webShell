@@ -9,6 +9,14 @@ body {
 	font-family: monospace;
 }
 
+.green {
+    color: #00ec00;
+}
+
+.red {
+    color: #ea0000;
+}
+
 div#contentWrapper {
     max-width: 80ch;
     margin: 0 auto;
