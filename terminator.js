@@ -7,21 +7,21 @@ var Terminator = function(element, config) {
     this.element = element;
     this.hiddenField = hiddenField;
     this.config = config || {};
+    
     this.displayField = null;
+    this.locked = false;
     
     hiddenField.addEventListener('input', (function() {
         console.log('Typing!');
-        if (this.displayField) {
+        if (this.displayField && !this.locked) {
             this.displayField.textContent = this.hiddenField.value;
         }
     }).bind(this));
     
     hiddenField.addEventListener('keydown', (function(e) {
-        if (e.key == 13 || e.keyCode == 13) {
+        if ((e.key == 13 || e.keyCode == 13) && !this.locked) {
             console.log("Enter key pressed!");
-            this.lineBreak();
-            this.hiddenField.value = '';
-            this.prompt();
+            this.run();
         }
     }).bind(this));
     
@@ -35,6 +35,35 @@ var Terminator = function(element, config) {
 Terminator.prototype.lineBreak = function() {
     var br = document.createElement('br');
     this.element.appendChild(br);
+}
+
+Terminator.prototype.run = function() {
+    this.lineBreak();
+    this.hiddenField.value = '';
+    this.prompt();
+}
+
+Terminator.prototype.autoType = function(command) {
+    this.locked = true;
+    this.displayField.textContent = '';
+    
+    var funcs = [];
+    for (var i = 0; i < command.length; i++) {
+        funcs[i] = (function(index) {
+            return (function() {
+                this.displayField.textContent += command[index];
+            }).bind(this);
+        }).call(this, i);
+    }
+    
+    for (var i = 0; i < command.length; i++) {
+        setTimeout(funcs[i], i * 40);
+    }
+    
+    setTimeout((function() {
+        this.locked = false;
+        this.run();
+    }).bind(this), i * 40);
 }
 
 Terminator.prototype.prompt = function(prefix) {
