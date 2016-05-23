@@ -16,12 +16,26 @@ var Terminator = function(element, config) {
         }
     }).bind(this));
     
+    hiddenField.addEventListener('keydown', (function(e) {
+        if (e.key == 13 || e.keyCode == 13) {
+            console.log("Enter key pressed!");
+            this.lineBreak();
+            this.hiddenField.value = '';
+            this.prompt();
+        }
+    }).bind(this));
+    
     if (config.alwaysFocus) {
         hiddenField.addEventListener('blur', (function() {
             setTimeout((function() {this.hiddenField.focus();}).bind(this), 0);
         }).bind(this), true);
     }
 };
+
+Terminator.prototype.lineBreak = function() {
+    var br = document.createElement('br');
+    this.element.appendChild(br);
+}
 
 Terminator.prototype.prompt = function(prefix) {
     prefix = prefix || this.config.prefix || '~$';
