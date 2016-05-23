@@ -1,0 +1,10 @@
+html {
+	overflow-y: scroll;
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-size: 1.25em;
+	font-family: monospace;
+}

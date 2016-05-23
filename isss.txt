@@ -1,0 +1,18 @@
+III    -osSSSSSSSsS-      `/ssSSSSSSss/`     .+sSSSSSSSsS:  
+III   SSSs/-----/sSSs`   -SSSo:::::/SSSS-   +SSs+:----/SSSs.
+III  /SS/         `SSs   SSs         `SSs  .SSo         -SSs
+III  +SS`          `ss   SSo          `ss  :SS:          `ss
+III  +SS`              ,................., :SS:             
+III  +SS`              /SSSSSSSSSSSSSSSSS\ :SS:             
+III  +SS.              |SSSSSS-----SSSSSS| -SS/             
+III  .SSs-`            |SSSSS/     \SSSSS| `sSS:`           
+III   -sSSSSSSSsso:`   |SSSSSs\   /sSSSSS|  .sSSSSSSSSsso:`  
+III     -+sSSSSSSSSS/  |SSSSSSs   sSSSSSS|    -+sSSSSSSSSS+ 
+III              .SSS: |SSSSSS/   \sSSSSS|             .oSS+
+III                SSS |SSSSS/_____\SSSSS|               sSs
+III                SSs \SSSSSSSSSSSSSSSSS/               sSs
+III                SSS `-----------------`               sSs
+III  `--`          SSS   --.          +SS  `--`          sSs
+III  :SSS         -SS+   SSS`         sSS  .SSs         .SSs
+III   oSSso/::::+sSSs    -SSSS/::::/oSSS-   /SSSo/::::/SSSs`
+III    .+ssssssssso.      `/ssSSSSSSss/`     `+ssSSSSSssS-  
