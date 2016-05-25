@@ -43,3 +43,7 @@ ul li::before {
 a {
     color: #01dfff;
 }
+
+p {
+	margin-top: 0;
+}

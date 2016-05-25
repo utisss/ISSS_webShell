@@ -39,8 +39,27 @@ The Information and Systems Security Society (ISSS) is a student organization at
 <ul>
 <li>Join our <a href="https://www.facebook.com/groups/utisss/" target="_blank" title="ISSS Facebook Group">Facebook group</a> to RVSP for upcoming events, read about the latest security and organization news, and discuss topics with other members.</li>
 <li>Sign up for our weekly <a href="https://utlists.utexas.edu/sympa/subscribe/isss" target="_blank" title="ISSS Mailing List">mailing list</a> for meeting reminders and updates.</li>
+<li>View the current <a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a> list and organization contact information.</li>
+</li>
 </ul>
 </div>
+</div>
+
+<div class="officers" style="display: none">
+<p>Current ISSS officers for the 2016-2017 school year:</p>
+<ul>
+<li>Brian Cui - President</li>
+<li>John O'Kane - Vice President</li>
+<li>Hayley Call - Corporate</li>
+<li>Mary Sawyer - Communications</li>
+<li>Jonathan Fisher - Communications</li>
+</ul>
+<p>
+Interested in becoming an officer? Opportunities and more information will become available near the end of the school year, though you can contact us at any time for details regarding officer positions.
+</p>
+</div>
+
+<div class="contact" style="display: none">
 </div>
 
 <script>
@@ -49,6 +68,7 @@ var main = new Terminator(document.getElementById('contentWrapper'),
                 prefix: '<span class="green">isss@utexas</span>:<span class="red">~$</span> ',
                 alwaysFocus: true
             });
+			
 main.register(function(term, command) {
     command = command.split(' ');
     var cloneTarget = null;
@@ -63,6 +83,19 @@ main.register(function(term, command) {
     term.prompt();
     return;
 }, 'cat');
+
+main.register(function(term, command) {
+	var cloneTarget = document.getElementsByClassName('officers');
+	term.writeHTML(cloneTarget[0].innerHTML);
+	term.prompt();
+	return;
+}, 'officers');
+
+main.register(function(term, command) {
+	term.writeLine('/utexas/utcs/orgs/isss');
+	term.lineBreak();
+	term.prompt();
+}, 'pwd');
 
 main.prompt();
 main.autoType('cat welcome', 1000);
