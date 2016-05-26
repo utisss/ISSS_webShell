@@ -44,7 +44,16 @@ ul li::before {
     width: 2ch;
 }
 
-a {
+a[onclick] {
+	color: black;
+	background-color: #c0c0c0;
+	text-decoration: none;
+	font-weight: bold;
+	padding-left: .25ch;
+	padding-right: .25ch;
+}
+
+a[target="_blank"], a[href^="mailto:"] {
     color: #01dfff;
 }
 
