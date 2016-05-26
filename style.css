@@ -17,6 +17,10 @@ body {
     color: #ea0000;
 }
 
+.pink {
+    color: #fd05ff;
+}
+
 div#contentWrapper {
     max-width: 80ch;
     margin: 0 auto;

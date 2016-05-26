@@ -32,14 +32,16 @@ II  +sssssss+    -sssssssy-   +sssssss+
 
 INFORMATION & SYSTEMS SECURITY SOCIETY
 </pre>
-
+<p>
+<span class="pink">[MEETING NEWS]:</span> The next ISSS meeting will be our Fall 2016 organization kickoff in September. More details will become available near the end of the summer!
+</p>
 <p>
 The Information and Systems Security Society (ISSS) is a student organization at the University of Texas at Austin dedicated towards educating students on the topics of computer security. ISSS promotes a culture of security in the University by providing a safe learning environment for students to learn both software and hardware exploits as well as the underlying system behavior that enables them to be vulnerable.
 </p>
 <ul>
 <li>Join our <a href="https://www.facebook.com/groups/utisss/" target="_blank" title="ISSS Facebook Group">Facebook group</a> to RVSP for upcoming events, read about the latest security and organization news, and discuss topics with other members.</li>
 <li>Sign up for our weekly <a href="https://utlists.utexas.edu/sympa/subscribe/isss" target="_blank" title="ISSS Mailing List">mailing list</a> for meeting reminders and updates.</li>
-<li>View the current <a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a> list and organization contact information.</li>
+<li>View the current <a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a> list and organization <a href="javascript:void(0)" onclick="main.autoType('contact')" title="contact">contact</a> information.</li>
 </li>
 </ul>
 </div>
@@ -55,11 +57,31 @@ The Information and Systems Security Society (ISSS) is a student organization at
 <li>Jonathan Fisher - Communications</li>
 </ul>
 <p>
-Interested in becoming an officer? Opportunities and more information will become available near the end of the school year, though you can contact us at any time for details regarding officer positions.
+Interested in becoming an officer? Opportunities and more information will become available near the end of the school year, though you can <a href="javascript:void(0)" onclick="main.autoType('contact')" title="contact">contact</a> us at any time for details regarding officer positions.
 </p>
 </div>
 
 <div class="contact" style="display: none">
+<p>
+Our general contact email is <a href="mailto:contact@isss.io">contact@isss.io</a>. Corporate sponsors and inquiries related to organization sponsorship should email <a href="mailto:corporate@isss.io">corporate@isss.io</a>.
+</p>
+<p>In addition to the general contact emails, our <a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a> and teams can be individually emailed using the addresses below:</p>
+<ul>
+<li>President - <a href="mailto:president@isss.io">president@isss.io</a></li>
+<li>Vice President - <a href="mailto:vicepresident@isss.io">vicepresident@isss.io</a></li>
+<li>Corporate - <a href="mailto:corporate@isss.io">corporate@isss.io</a></li>
+<li>Communications - <a href="mailto:communications@isss.io">communications@isss.io</a></li>
+</ul>
+</div>
+
+<div class="nuclear_launch_codes" style="display: none">
+<p>John,</p>
+<p>I've hacked the system and have retrieved the nuclear launch codes. be careful and keep these secure so they don't fall into the wrong hands.</p>
+
+<p>Activation Sequence: 0000 0000<br/>
+President's Secondary Auth: 1234 5678</p>
+
+<p>-Ghostman</p>
 </div>
 
 <script>
@@ -68,28 +90,53 @@ var main = new Terminator(document.getElementById('contentWrapper'),
                 prefix: '<span class="green">isss@utexas</span>:<span class="red">~$</span> ',
                 alwaysFocus: true
             });
-			
-main.register(function(term, command) {
-    command = command.split(' ');
+            
+function printClass(term, className) {
     var cloneTarget = null;
-    if (command[1] 
-        && (cloneTarget = document.getElementsByClassName(command[1]))
-        && (cloneTarget[0])) {
-        term.writeHTML(cloneTarget[0].innerHTML);
+    if (className && (cloneTarget = document.getElementsByClassName(className))) {
+        if (cloneTarget[0]) {
+            term.writeHTML(cloneTarget[0].innerHTML);
+        } else {
+            term.writeLine("cat: " + className + ": No such file or directory");
+            term.lineBreak();
+        }
     } else {
         term.lineBreak();
     }
-    
+}
+
+main.register(function(term, command) {
+    term.writeLine('welcome.txt');
+    term.writeLine('officers.txt');
+    term.writeLine('contact.txt');
+    term.writeLine('nuclear_launch_codes.txt');
+    term.lineBreak();
+    term.prompt();
+}, 'ls');
+			
+main.register(function(term, command) {
+    command = command.split(' ');
+    var arg = command[1] || '';
+    if (arg.indexOf('.txt') !== -1
+        && arg.indexOf('.txt') === (arg.length - 4))
+        arg = arg.substring(0, arg.indexOf('.txt'));
+        
+    printClass(term, arg);
     term.prompt();
     return;
 }, 'cat');
 
 main.register(function(term, command) {
-	var cloneTarget = document.getElementsByClassName('officers');
-	term.writeHTML(cloneTarget[0].innerHTML);
+	printClass(term, 'officers');
 	term.prompt();
 	return;
 }, 'officers');
+
+main.register(function(term, command) {
+	printClass(term, 'contact');
+	term.prompt();
+	return;
+}, 'contact');
 
 main.register(function(term, command) {
 	term.writeLine('/utexas/utcs/orgs/isss');
@@ -98,7 +145,7 @@ main.register(function(term, command) {
 }, 'pwd');
 
 main.prompt();
-main.autoType('cat welcome', 1000);
+main.autoType('cat welcome.txt', 1000);
 </script>
 </body>
 </html>
