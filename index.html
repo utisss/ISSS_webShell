@@ -44,7 +44,18 @@ The Information and Systems Security Society (ISSS) is a student organization at
 <li>View the current <a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a> list and organization <a href="javascript:void(0)" onclick="main.autoType('contact')" title="contact">contact</a> information.</li>
 </li>
 </ul>
+<p>Type <a href="javascript:void(0)" onclick="main.autoType('help')" title="help">help</a> to view a list of available commands and navigate the site.</p>
 </div>
+</div>
+
+<div class="help" style="display: none">
+<p>ISSS WebShell, version 2.0.1.6(1)-release</p>
+<p>
+These shell commands are defined internally. Type <a href="javascript:void(0)" onclick="main.autoType('help')" title="help">help</a> to see this list. Internal <a href="javascript:void(0)" onclick="main.autoType('commands')" title="commands">commands</a> are highlighted and external <a href="https://www.ismyinternetworking.com" title="Is My Internet Working?" target="_blank">links</a> are underlined and can be clicked to run and be opened, respectively.</p>
+<p>
+<a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a>: View the current list of ISSS officers.<br/>
+<a href="javascript:void(0)" onclick="main.autoType('contact')" title="contact">contact</a>: View contact emails for the organization.<br/>
+</p>
 </div>
 
 <div class="officers" style="display: none">
@@ -137,6 +148,12 @@ main.register(function(term, command) {
 	term.prompt();
 	return;
 }, 'contact');
+
+main.register(function(term, command) {
+	printClass(term, 'help');
+	term.prompt();
+	return;
+}, ['help', 'man']);
 
 main.register(function(term, command) {
 	term.writeLine('/utexas/utcs/orgs/isss');
