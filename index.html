@@ -14,6 +14,9 @@
 <body>
 
 <div id="contentWrapper">
+</div>
+
+<div id="classWrapper">
 
 <div class="welcome" style="display: none">
 <pre class="centered">
@@ -95,6 +98,8 @@ President's Secondary Auth: 1234 5678</p>
 <p>-Ghostman</p>
 </div>
 
+</div>
+
 <script>
 var main = new Terminator(document.getElementById('contentWrapper'), 
             { 
@@ -160,6 +165,11 @@ main.register(function(term, command) {
 	term.lineBreak();
 	term.prompt();
 }, 'pwd');
+
+main.register(function(term, command) {
+	term.element.innerHTML = '';
+	term.prompt();
+}, 'clear');
 
 main.prompt();
 main.autoType('cat welcome.txt', 1000);
