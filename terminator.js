@@ -46,7 +46,15 @@ var Terminator = function(element, config) {
 };
 
 //Register a program to a Terminator instance with a function and name.
+//Also takes an array for registering aliases for a single command.
 Terminator.prototype.register = function(callback, name) {
+	if (Array.isArray(name)) {
+		for (var i = 0; i < name.length; i++) {
+			this.programs[name] = callback;
+		}
+		return;
+	}
+	
     this.programs[name] = callback;
 }
 
