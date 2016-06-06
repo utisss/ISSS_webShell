@@ -52,7 +52,8 @@ The Information and Systems Security Society (ISSS) is a student organization at
 </div>
 
 <div class="help" style="display: none">
-<p>ISSS WebShell, version 2.0.1.6(1)-release</p>
+<p>ISSS WebShell, version 2.0.1.6(1)-release.<br/>
+Created by Brian Cui and maintained by <a href="javascript:void(0)" onclick="main.autoType('officers')" title="officers">officers</a> of ISSS.</p>
 <p>
 These shell commands are defined internally. Type <a href="javascript:void(0)" onclick="main.autoType('help')" title="help">help</a> to see this list. Internal <a href="javascript:void(0)" onclick="main.autoType('commands')" title="commands">commands</a> are highlighted and external <a href="https://www.ismyinternetworking.com" title="Is My Internet Working?" target="_blank">links</a> are underlined and can be clicked to run and be opened, respectively.</p>
 <p>
@@ -93,8 +94,17 @@ Our general contact email is <a href="mailto:contact@isss.io">contact@isss.io</a
 
 <div class="git" style="display: none">
 <p>
-
+On branch master<br/>
+Your branch is up-to-date with 'origin/master'.<br/>
+nothing to commit, working directory clean<br/>
 </p>
+<p>
+The ISSS website "WebShell" runs entirely clientside and its source code can be viewed directly from the browser using developer tools.
+</p>
+<p>
+A JS library developed in parallel called <a href="https://github.com/theBrianCui/terminator.js" target="_blank" title="terminator.js on GitHub">terminator.js</a> powers the site's terminal-like interface. It has a simple and flexible interface for building custom "programs" and commands, and is totally free and open source!
+</p>
+
 </div>
 
 <div class="nuclear_launch_codes" style="display: none">
@@ -168,6 +178,12 @@ main.register(function(term, command) {
 	term.prompt();
 	return;
 }, ['help', 'man']);
+
+main.register(function(term, command) {
+    printClass(term, 'git');
+    term.prompt();
+    return;
+}, 'git');
 
 main.register(function(term, command) {
 	term.writeLine('/utexas/utcs/orgs/isss');
