@@ -4,7 +4,7 @@
 <title>Information & Systems Security Society</title>
 <meta charset="utf-8" /> 
 <meta name="description" content="The official website of the Information & Systems Security Society, a student-led organization at the University of Texas at Austin dedicated towards computer security education and awareness." />
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <meta http-equiv="X-UA-Compatible" content="IE=9" /> -->
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="stylesheet" type="text/css" href="terminator.css" />
@@ -135,8 +135,18 @@ President's Secondary Auth: 1234 5678</p>
 var main = new Terminator(document.getElementById('contentWrapper'), 
             { 
                 prefix: '<span style="font-weight: bold"><span class="green">isss@utexas</span>:<span class="red">~$</span></span> ',
-                alwaysFocus: true
+                alwaysFocus: true,
+                autoScroll: (window.innerWidth >= 600)
             });
+
+window.onresize = function() {
+    console.log("Resizing!");
+    if (window.innerWidth >= 600) {
+        main.config.autoScroll = true;
+    } else {
+        main.config.autoScroll = false;
+    }
+};
             
 function printClass(term, className) {
     var cloneTarget = null;
@@ -207,6 +217,12 @@ main.register(function(term, command) {
 	term.element.innerHTML = '';
 	term.prompt();
 }, 'clear');
+
+main.register(function(term, command) {
+    term.writeLine('This user is not in the cders file. This incident has been reported.');
+    term.lineBreak();
+    term.prompt();
+}, 'cd');
 
 main.prompt();
 main.autoType('cat welcome.txt', 1000);

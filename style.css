@@ -73,4 +73,8 @@ p {
     .smallScreen {
         display: block;
     }
+    
+    div#contentWrapper {
+        margin-bottom: 4em;
+    }
 }
