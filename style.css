@@ -60,3 +60,17 @@ a[target="_blank"], a[href^="mailto:"] {
 p {
 	margin-top: 0;
 }
+
+.smallScreen {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .bigScreen {
+        display: none;
+    }
+    
+    .smallScreen {
+        display: block;
+    }
+}
