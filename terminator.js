@@ -1,5 +1,19 @@
 //Create a new Terminator instance targeting a DOM element with a configuration.
 var Terminator = function(element, config) {
+    this.config = {
+        alwaysFocus: true,
+        autoScroll: true,
+        prefix: '~$',
+        caret: '_'
+    };
+    
+    //Override default settings
+    for (var setting in config) {
+        if (config.hasOwnProperty(setting) && this.config.hasOwnProperty(setting))
+            this.config[setting] = config[setting];
+    }
+    
+    //Setup a text input field to act as the console prompt
     var hiddenField = document.createElement('input');
     hiddenField.setAttribute('type', 'text');
     hiddenField.classList.add('terminator-hidden');
@@ -7,15 +21,31 @@ var Terminator = function(element, config) {
     
     this.element = element;
     this.hiddenField = hiddenField;
-    this.config = config || {};
-    
     this.displayField = null;
     this.activeCaret = null;
     this.callback = false;
     this.locked = false;
     
-    this.programs = {};
+    var programs = {};
+    //Register a program to a Terminator instance with a function and name.
+    //Also takes an array for registering aliases for a single command.
+    this.register = function(callback, name) {
+        if (Array.isArray(name)) {
+            for (var i = 0; i < name.length; i++) {
+                programs[name[i]] = callback;
+            }
+            return;
+        }
+        programs[name] = callback;
+    }
+    this.canExecute = function(name) {
+        return name && programs[name];
+    }
+    this.execute = function(name, command) {
+        return programs[name](this, command);
+    }
     
+    //Fill in the prompt value with the hiddenField value
     hiddenField.addEventListener('input', (function() {
         console.log('Typing!');
         if (this.displayField && !this.locked) {
@@ -25,7 +55,7 @@ var Terminator = function(element, config) {
     }).bind(this));
     
     hiddenField.addEventListener('keydown', (function(e) {
-        //Prevent scrolling left and right
+        //Prevent scrolling left and right, which breaks the caret
         if (((e.key == 37) || (e.keyCode == 37)) || ((e.key == 39) || (e.keyCode == 39))) {
             e.preventDefault();
             return;
@@ -38,7 +68,8 @@ var Terminator = function(element, config) {
         }
     }).bind(this));
     
-    if (config.alwaysFocus) {
+    if (this.config.alwaysFocus) {
+        //Prevent the hidden field from being blurred
         hiddenField.addEventListener('blur', (function() {
             setTimeout((function() {
                 var origX = window.scrollX, origY = window.scrollY;
@@ -48,19 +79,6 @@ var Terminator = function(element, config) {
         }).bind(this), true);
     }
 };
-
-//Register a program to a Terminator instance with a function and name.
-//Also takes an array for registering aliases for a single command.
-Terminator.prototype.register = function(callback, name) {
-	if (Array.isArray(name)) {
-		for (var i = 0; i < name.length; i++) {
-			this.programs[name[i]] = callback;
-		}
-		return;
-	}
-	
-    this.programs[name] = callback;
-}
 
 //Makes a linebreak and then prints text.
 Terminator.prototype.writeLine = function(content) {
@@ -110,10 +128,13 @@ Terminator.prototype.run = function(command) {
     //Otherwise, search the known programs list
     console.log("No callback for command: " + command);
     var args = command.split(' ');
-    if (args[0] && this.programs[args[0]]) {
+    if (this.canExecute(args[0])) {
         console.log("Running registered program " + args[0]);
-        this.programs[args[0]](this, command);
-        window.scrollTo(0, document.body.scrollHeight);
+        this.execute(args[0], command);
+        
+        if (this.config.autoScroll) {
+            window.scrollTo(0, document.body.scrollHeight);
+        }
     } else {
         console.warn("Invalid command: " + command);
         this.writeLine(command + ": command not found");
@@ -153,10 +174,10 @@ Terminator.prototype.prompt = function(prefix, callback) {
     this.hiddenField.value = '';
     
     var promptWrapper = document.createElement('span');
-    promptWrapper.innerHTML = prefix || this.config.prefix || '~$';
+    promptWrapper.innerHTML = prefix || this.config.prefix;
     var commandWrapper = document.createElement('span');
     var caretWrapper = document.createElement('span');
-    caretWrapper.textContent = this.config.caret || '_';
+    caretWrapper.textContent = this.config.caret;
     caretWrapper.classList.add('terminator-blink');
     
     this.element.appendChild(promptWrapper);
