@@ -225,6 +225,14 @@ main.register(function(term, command) {
     term.prompt();
 }, 'cd');
 
+main.register(function(term, command) {
+    var contentWrapper = document.getElementById('contentWrapper');
+    contentWrapper.classList.toggle('hacker');
+    term.writeLine('Hacker mode: ' + (contentWrapper.classList.contains('hacker') ? 'ENABLED' : 'DISABLED'));
+    term.lineBreak();
+    term.prompt();
+}, 'hack');
+
 main.prompt();
 main.autoType('cat welcome.txt', 1000);
 </script>

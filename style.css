@@ -26,6 +26,15 @@ div#contentWrapper {
     margin: 0 auto;
 }
 
+div#contentWrapper.hacker {
+    color: #00ec00 !important;
+}
+
+div#contentWrapper.hacker * {
+    color: #00ec00 !important;
+}
+
+
 pre.centered {
     text-align: center;
 }
