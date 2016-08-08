@@ -7,9 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <meta http-equiv="X-UA-Compatible" content="IE=9" /> -->
 <link rel="stylesheet" type="text/css" href="style.css" />
-<link rel="stylesheet" type="text/css" href="terminator.css" />
-<!-- <meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" /> -->
-<script src="terminator.js"></script>
 </head>
 <body>
 
@@ -132,109 +129,9 @@ President's Secondary Auth: 1234 5678</p>
 
 </div>
 
-<script>
-var main = new Terminator(document.getElementById('contentWrapper'), 
-            { 
-                prefix: '<span class="green">isss@utexas</span>:<span class="red">~$</span> ',
-                alwaysFocus: true,
-                autoScroll: (window.innerWidth >= 600)
-            });
+<link rel="stylesheet" type="text/css" href="terminator.css" />
+<script src="terminator.js"></script>
+<script src="script.js"></script>
 
-window.onresize = function() {
-    console.log("Resizing!");
-    if (window.innerWidth >= 600) {
-        main.config.autoScroll = true;
-    } else {
-        main.config.autoScroll = false;
-    }
-};
-            
-function printClass(term, className) {
-    var cloneTarget = null;
-    if (className && (cloneTarget = document.getElementsByClassName(className))) {
-        if (cloneTarget[0]) {
-            term.writeHTML(cloneTarget[0].innerHTML);
-        } else {
-            term.writeLine("cat: " + className + ": No such file or directory");
-            term.lineBreak();
-        }
-    } else {
-        term.lineBreak();
-    }
-}
-
-main.register(function(term, command) {
-    term.writeLine('welcome.txt');
-    term.writeLine('officers.txt');
-    term.writeLine('contact.txt');
-    term.writeLine('nuclear_launch_codes.txt');
-    term.lineBreak();
-    term.prompt();
-}, 'ls');
-			
-main.register(function(term, command) {
-    command = command.split(' ');
-    var arg = command[1] || '';
-    if (arg.indexOf('.txt') !== -1
-        && arg.indexOf('.txt') === (arg.length - 4))
-        arg = arg.substring(0, arg.indexOf('.txt'));
-        
-    printClass(term, arg);
-    term.prompt();
-    return;
-}, 'cat');
-
-main.register(function(term, command) {
-	printClass(term, 'officers');
-	term.prompt();
-	return;
-}, 'officers');
-
-main.register(function(term, command) {
-	printClass(term, 'contact');
-	term.prompt();
-	return;
-}, 'contact');
-
-main.register(function(term, command) {
-	printClass(term, 'help');
-	term.prompt();
-	return;
-}, ['help', 'man']);
-
-main.register(function(term, command) {
-    printClass(term, 'git');
-    term.prompt();
-    return;
-}, 'git');
-
-main.register(function(term, command) {
-	term.writeLine('/utexas/utcs/orgs/isss');
-	term.lineBreak();
-	term.prompt();
-}, 'pwd');
-
-main.register(function(term, command) {
-	term.element.innerHTML = '';
-	term.prompt();
-}, 'clear');
-
-main.register(function(term, command) {
-    term.writeLine('This user is not in the cders file. This incident has been reported.');
-    term.lineBreak();
-    term.prompt();
-}, 'cd');
-
-main.register(function(term, command) {
-    var contentWrapper = document.getElementById('contentWrapper');
-    contentWrapper.classList.toggle('hacker');
-    term.writeLine('Hacker mode: ' + (contentWrapper.classList.contains('hacker') ? 'ENABLED' : 'DISABLED'));
-    term.lineBreak();
-    term.prompt();
-}, 'hack');
-
-main.prompt();
-main.autoType('cat welcome.txt', 1000);
-</script>
 </body>
 </html>
