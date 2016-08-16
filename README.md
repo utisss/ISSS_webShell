@@ -1,3 +1,9 @@
+# ISSS webShell
+
+This repository houses the source code of the official [Information & Systems Security Society website](https://www.isss.io). 
+
+Although the webShell is a static (plain HTML) site, the source code is compartmentalized using [Handlebars](http://handlebarsjs.com/) and built using [Gulp](http://gulpjs.com/). This makes it simple for contributors to update site content, without having to modify a single large HTML file.
+
 ## Developer Setup
 
 To make your own build, make sure you have the latest versions of Node.js (4+) and NPM (3+) installed. Then, clone the repository and install the dependencies:
@@ -9,10 +15,11 @@ Once you make changes to the files in the `src` directory, build the site by run
 
     gulp
     
-The built/compiled/minified site will be available in the `dist` directory.
+The built/compiled/minified site will be available in the `dist` directory. Open `dist/index.html` to view the site. Because the webShell is a static site, it can be served directly from the filesystem.
 
-## Installing/Renewing SSL/TLS Certificate
+## Administrator Notes
 
+#### Installing/Renewing SSL/TLS Certificate
 https://www.namecheap.com/support/knowledgebase/article.aspx/9446/0/apache-opensslmodsslnginx
 
 ## License
