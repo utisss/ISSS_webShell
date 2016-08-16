@@ -1,0 +1,12 @@
+{
+  "name": "isss_webshell",
+  "version": "1.0.0",
+  "description": "The official website of the Information & Systems Security Society.",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Meslo';
+  src:  url('fonts/MesloLGS-Regular.woff2') format('woff2'),
+        url('fonts/MesloLGS-Regular.woff') format('woff');
+}
+
 html {
 	overflow-y: scroll;
 }
@@ -5,8 +11,12 @@ html {
 body {
 	background-color: black;
 	color: white;
-	font-size: 1.3em;
-	font-family: monospace;
+	font-size: 1em;
+	font-family: 'Meslo', monospace;
+}
+
+pre {
+    font-family: 'Meslo', monospace;
 }
 
 .green {
