@@ -5,6 +5,9 @@ var path = require('path');
 var clean = require('gulp-clean');
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
+var cleanCSS = require('gulp-clean-css');
+var htmlmin = require('gulp-htmlmin');
 
 gulp.task('clean', function () {
     return gulp.src('dist/**/*.*', { read: false })
@@ -19,11 +22,13 @@ gulp.task('static', function () {
 
 gulp.task('scripts', function () {
     return gulp.src('src/*.js')
+        .pipe(uglify())
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('styles', function () {
     return gulp.src('src/*.css')
+        .pipe(cleanCSS())
         .pipe(gulp.dest('dist/'));
 });
  
@@ -42,6 +47,7 @@ gulp.task('html', function (cb) {
         
         gulp.src('src/index.hbs')
             .pipe(handlebars(templateData, options))
+            .pipe(htmlmin({ collapseWhitespace: true }))
             .pipe(rename('index.html'))
             .pipe(gulp.dest('dist'));
         
