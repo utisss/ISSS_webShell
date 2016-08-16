@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var fs = require('fs');
+var path = require('path');
 
 var clean = require('gulp-clean');
 var handlebars = require('gulp-compile-handlebars');
@@ -25,19 +27,26 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('dist/'));
 });
  
-gulp.task('html', function () {
-    var templateData = {
-        news: require('./src/data/news.json')
-    },
-    options = {
-        ignorePartials: true,
-        batch: ['./src/partials']
-    }
- 
-    return gulp.src('src/index.hbs')
-        .pipe(handlebars(templateData, options))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest('dist'));
+gulp.task('html', function (cb) {
+    fs.readdir(path.join(__dirname, 'src/data/'), function (err, files) {
+        var templateData = {};
+        for (var i = 0; i < files.length; i++) {
+            var baseName = files[i].split('.')[0];
+            templateData[baseName] = require('./src/data/' + files[i]);
+        }
+        
+        var options = {
+            ignorePartials: true,
+            batch: ['./src/partials']
+        };
+        
+        gulp.src('src/index.hbs')
+            .pipe(handlebars(templateData, options))
+            .pipe(rename('index.html'))
+            .pipe(gulp.dest('dist'));
+        
+        cb();
+    });
 });
 
 gulp.task('default', ['static', 'scripts', 'styles', 'html']);
