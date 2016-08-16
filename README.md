@@ -9,7 +9,7 @@ Although the webShell is a static (plain HTML) site, the source code is compartm
 To make your own build, make sure you have the latest versions of Node.js (4+) and NPM (3+) installed. Then, clone the repository and install the dependencies:
 
     npm install
-    npm install -g gulp
+    npm install --global gulp-cli
     
 Once you make changes to the files in the `src` directory, build the site by running
 
