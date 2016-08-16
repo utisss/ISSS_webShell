@@ -5,6 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-rename": "^1.2.2"
   },

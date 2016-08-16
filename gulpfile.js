@@ -1,7 +1,14 @@
 var gulp = require('gulp');
 
+var clean = require('gulp-clean');
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
+
+gulp.task('clean', function () {
+    return gulp.src('dist/**/*.*', { read: false })
+        .pipe(clean({ force: true }))
+        .pipe(gulp.dest('dist'));
+});
 
 gulp.task('static', function () {
     return gulp.src('src/static/**/*.*')
