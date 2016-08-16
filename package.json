@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "The official website of the Information & Systems Security Society.",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
