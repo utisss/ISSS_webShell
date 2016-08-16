@@ -31,7 +31,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
 ### Dependency Licences
 
-This project uses the Meslo font, available [here](https://github.com/andreberg/Meslo-Font). Meslo is licensed under the Apache License, Version 2.0. You may obtain a copy of the Apache License [here](http://www.apache.org/licenses/LICENSE-2.0).
+This project uses the Meslo font, available [here](https://github.com/andreberg/Meslo-Font). Meslo is copyrighted by André Berg and is licensed under the Apache License, Version 2.0. You may obtain a copy of the Apache License [here](http://www.apache.org/licenses/LICENSE-2.0).
