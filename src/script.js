@@ -70,6 +70,12 @@ main.register(function(term, command) {
 }, 'git');
 
 main.register(function(term, command) {
+    printClass(term, 'sponsor');
+    term.prompt();
+    return;
+}, ['sponsor', 'sponsors']);
+
+main.register(function(term, command) {
 	term.writeLine('/utexas/utcs/orgs/isss');
 	term.prompt();
 }, 'pwd');
