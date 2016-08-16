@@ -76,6 +76,30 @@ main.register(function(term, command) {
 }, ['sponsor', 'sponsors']);
 
 main.register(function(term, command) {
+    term.writeLine('Redirecting to the Facebook group...');
+    setTimeout(function() {
+        window.location = 'https://www.facebook.com/groups/utisss/';
+        term.prompt();
+    }, 750);
+}, ['fb', 'facebook']);
+
+main.register(function(term, command) {
+    term.writeLine('Redirecting to the mailing list subscription page...');
+    setTimeout(function() {
+        window.location = 'https://utlists.utexas.edu/sympa/subscribe/isss';
+        term.prompt();
+    }, 750);
+}, ['mail', 'sub', 'subscribe']);
+
+main.register(function(term, command) {
+    term.writeLine('Redirecting to the mailing list unsubscribe page...');
+    setTimeout(function() {
+        window.location = 'https://utlists.utexas.edu/sympa/sigrequest/isss';
+        term.prompt();
+    }, 750);
+}, ['unsub', 'unsubscribe']);
+
+main.register(function(term, command) {
 	term.writeLine('/utexas/utcs/orgs/isss');
 	term.prompt();
 }, 'pwd');
