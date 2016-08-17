@@ -116,6 +116,16 @@ main.register(function(term, command) {
 }, 'cd');
 
 main.register(function(term, command) {
+    term.writeLine('isss');
+    term.prompt();
+}, 'whoami');
+
+main.register(function(term, command) {
+    term.writeLine(command.split(' ').slice(1).join(' '));
+    term.prompt();
+}, 'echo');
+
+main.register(function(term, command) {
     var contentWrapper = document.getElementById('contentWrapper');
     contentWrapper.classList.toggle('hacker');
     term.writeLine('Hacker mode: ' + (contentWrapper.classList.contains('hacker') ? 'ENABLED' : 'DISABLED'));
