@@ -42,7 +42,13 @@ gulp.task('html', function (cb) {
         
         var options = {
             ignorePartials: true,
-            batch: ['./src/partials']
+            batch: ['./src/partials'],
+	    helpers: {
+		command: function (str) {
+		    return new handlebars.Handlebars.SafeString(
+			'<a href="javascript:void(0)" onclick="main.autoType(\'' + str + '\')" title="' + str + '">' + str + '</a>');
+		}
+	    }
         };
         
         gulp.src('src/index.hbs')
