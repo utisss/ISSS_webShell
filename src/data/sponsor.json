@@ -1,3 +1,15 @@
 {
+	"sponsors": [
+		{
+			"name": "PwC",
+			"link": "https://www.pwc.com/",
+			"level": "Gold"
+		},
+		{
+			"name": "Palo Alto Networks",
+			"link": "https://www.paloaltonetworks.com/",
+			"level": "Silver"
+		}
+	],
     "link": "https://goo.gl/eStLGx"
 }
