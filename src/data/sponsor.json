@@ -9,6 +9,11 @@
 			"name": "Palo Alto Networks",
 			"link": "https://www.paloaltonetworks.com/",
 			"level": "Silver"
+		},
+		{
+			"name": "Stroz Friedberg",
+			"link": "https://www.strozfriedberg.com/",
+			"level": "Silver"
 		}
 	],
     "link": "https://goo.gl/eStLGx"
