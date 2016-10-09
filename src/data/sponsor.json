@@ -14,7 +14,22 @@
 			"name": "Stroz Friedberg",
 			"link": "https://www.strozfriedberg.com/",
 			"level": "Silver"
-		}
+		},
+        {
+            "name": "Cisco",
+            "link": "https://www.cisco.com/c/en/us/index.html",
+            "level": "Silver"
+        },
+        {
+            "name": "Cisco Talos",
+            "link": "https://www.cisco.com/c/en/us/products/security/talos.html",
+            "level": "Silver"
+        },
+        {
+            "name": "Gemalto",
+            "link": "http://www.gemalto.com/",
+            "level": "Silver"
+        }
 	],
     "link": "https://goo.gl/eStLGx"
 }
