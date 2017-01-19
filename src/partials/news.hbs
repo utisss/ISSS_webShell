@@ -1,3 +1,6 @@
 <p>
-<span class="pink">[MEETING NEWS]:</span> {{headline}} (<a href="{{link}}" target="_blank">Facebook Event</a>)
+<span class="pink">[MEETING NEWS]:</span> {{headline}} 
+	{{#if link}}
+		(<a href="{{link}}" target="_blank">Facebook Event</a>)
+	{{/if}}
 </p>
