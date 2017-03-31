@@ -89,6 +89,15 @@ main.register(function(term, command) {
         term.prompt();
     }, 750);
 }, ['fb', 'facebook']);
+
+main.register(function(term, command) {
+    term.writeLine('Redirecting to the Careers Masterlist...');
+    setTimeout(function() {
+        window.location = 'https://docs.google.com/document/d/18fVI1KxupGfPOG-u31sJsLlTW3M76R5ujRQYODAW1c8/edit';
+        term.prompt();
+    }, 750);
+}, ['career', 'careers']);
+
 main.register(function(term, command) {
     term.writeLine('Redirecting to the Security Day Registration...');
     setTimeout(function() {
