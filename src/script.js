@@ -1,5 +1,5 @@
-var main = new Terminator(document.getElementById('contentWrapper'), 
-            { 
+var main = new Terminator(document.getElementById('contentWrapper'),
+            {
                 prefix: '<span class="green">isss@utexas</span>:<span class="red">~$</span> ',
                 alwaysFocus: true,
                 autoScroll: (window.innerWidth >= 600)
@@ -13,7 +13,7 @@ window.onresize = function() {
         main.config.autoScroll = false;
     }
 };
-            
+
 function printClass(term, className) {
     var cloneTarget = null;
     if (className && (cloneTarget = document.getElementsByClassName(className))) {
@@ -33,14 +33,14 @@ main.register(function(term, command) {
     term.writeLine('nuclear_launch_codes.txt');
     term.prompt();
 }, 'ls');
-			
+
 main.register(function(term, command) {
     command = command.split(' ');
     var arg = command[1] || '';
     if (arg.indexOf('.txt') !== -1
         && arg.indexOf('.txt') === (arg.length - 4))
         arg = arg.substring(0, arg.indexOf('.txt'));
-        
+
     printClass(term, arg);
     term.prompt();
     return;
@@ -83,6 +83,13 @@ main.register(function(term, command) {
         term.prompt();
     }, 750);
 }, ['fb', 'facebook']);
+main.register(function(term, command) {
+    term.writeLine('Redirecting to the Security Day Registration...');
+    setTimeout(function() {
+        window.location = 'https://www.isss.io/register';
+        term.prompt();
+    }, 750);
+}, ['register']);
 
 main.register(function(term, command) {
     term.writeLine('Redirecting to the mailing list subscription page...');
