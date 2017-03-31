@@ -53,6 +53,12 @@ main.register(function(term, command) {
 }, 'officers');
 
 main.register(function(term, command) {
+	printClass(term, 'new');
+	term.prompt();
+	return;
+}, ['news', 'new']);
+
+main.register(function(term, command) {
 	printClass(term, 'contact');
 	term.prompt();
 	return;
