@@ -107,6 +107,14 @@ main.register(function(term, command) {
 }, ['register']);
 
 main.register(function(term, command) {
+    term.writeLine('Redirecting to the CTF website...');
+    setTimeout(function() {
+        window.location = 'https://isss.lolctf.org';
+        term.prompt();
+    }, 750);
+}, ['ctf']);
+
+main.register(function(term, command) {
     term.writeLine('Redirecting to the mailing list subscription page...');
     setTimeout(function() {
         window.location = 'https://utlists.utexas.edu/sympa/subscribe/isss';
