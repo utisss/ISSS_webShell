@@ -53,7 +53,7 @@ main.register(function(term, command) {
 }, 'officers');
 
 main.register(function(term, command) {
-	printClass(term, 'new');
+	printClass(term, 'news');
 	term.prompt();
 	return;
 }, ['news', 'new']);

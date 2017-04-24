@@ -2,7 +2,7 @@
 
 This repository houses the source code of the official [Information & Systems Security Society website](https://www.isss.io). 
 
-Although the webShell is a static (plain HTML) site, the source code is compartmentalized using [Handlebars](http://handlebarsjs.com/) and built using [Gulp](http://gulpjs.com/). This makes it simple for contributors to update site content, without having to modify a single large HTML file.
+Although the webShell is a static (plain HTML) site that can be hosted anywhere, the source code is compartmentalized using [Handlebars](http://handlebarsjs.com/) and built using [Gulp](http://gulpjs.com/). This makes it simple for contributors to update site content, without having to modify a single large HTML file.
 
 ## Developer Setup
 

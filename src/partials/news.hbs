@@ -1,12 +1,13 @@
+<div class="news">
+{{#if event}}
 <p>
-	{{#if event}}
-		<span class="green">[EVENT NEWS]:</span> {{event}}
-	{{/if}}
+	<span class="green">[EVENT NEWS]:</span> {{event}}
 	{{#if link}}
-		(<a href="{{link}}" target="_blank">Register for Security Day!</a>)
+		(<a href="{{link}}" target="_blank">{{link_desc}}</a>)
 	{{/if}}
 </p>
-
+{{/if}}
 <p>
-<span class="pink">[MEETING NEWS]:</span> {{headline}}
+  <span class="pink">[MEETING NEWS]:</span> {{headline}}
 </p>
+</div>
