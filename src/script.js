@@ -98,13 +98,13 @@ main.register(function(term, command) {
     }, 750);
 }, ['career', 'careers']);
 
-main.register(function(term, command) {
+/*main.register(function(term, command) {
     term.writeLine('Redirecting to the Security Day Registration...');
     setTimeout(function() {
         window.location = 'https://www.isss.io/register';
         term.prompt();
     }, 750);
-}, ['register']);
+}, ['register']);*/
 
 main.register(function(term, command) {
     term.writeLine('Redirecting to the mailing list subscription page...');
