@@ -1,19 +1,14 @@
 {
 	"sponsors": [
 		{
-			"name": "PwC",
-			"link": "https://www.pwc.com/",
+			"name": "Praetorian",
+			"link": "https://www.praetorian.com/",
 			"level": "Gold"
 		},
 		{
-			"name": "Palo Alto Networks",
-			"link": "https://www.paloaltonetworks.com/",
-			"level": "Silver"
-		},
-		{
-			"name": "Stroz Friedberg",
-			"link": "https://www.strozfriedberg.com/",
-			"level": "Silver"
+			"name": "PwC",
+			"link": "http://www.pwc.com/",
+			"level": "Gold"
 		},
         {
             "name": "Cisco",
@@ -21,15 +16,15 @@
             "level": "Silver"
         },
         {
-            "name": "Cisco Talos",
-            "link": "https://www.cisco.com/c/en/us/products/security/talos.html",
+            "name": "AT&T",
+            "link": "https://www.att.com/",
             "level": "Silver"
         },
         {
-            "name": "Gemalto",
-            "link": "http://www.gemalto.com/",
+            "name": "Box",
+            "link": "https://www.box.com/",
             "level": "Silver"
         }
 	],
-    "link": "https://goo.gl/eStLGx"
+    "link": "https://goo.gl/PGMC2j"
 }
